@@ -8,7 +8,9 @@
         php artisan migrate:fresh --seed
 
     - this will run all migrations located in `database/migrations` folder && all seeds in `database/seeds` folder
+3. To run tests, go to your root folder and run the following:
 
+        vendor/bin/phpunit
 
 ## Helpful things
 
@@ -21,3 +23,8 @@ Open the shell by navigating to the root folder of the application and running
 Once you are in the shell, look at a database model by running
 
         App\Sport::first()
+
+
+## Extras
+
+This application was created with the help found at this [tutorial](https://laravel-news.com/your-first-laravel-application);
