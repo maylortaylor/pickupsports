@@ -150,7 +150,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Sujip\Guid\GuidServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -190,7 +190,9 @@ return [
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
+        'Guid' => Sujip\Guid\GuidServiceProvider::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,

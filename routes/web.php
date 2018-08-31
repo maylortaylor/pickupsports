@@ -21,7 +21,42 @@ Route::get('/', function () {
     // return view('welcome')->with('sports', $sports);
 });
 
-Route::get('/submit', function (){
+Route::get('/submitTeam', function () {
+    return view('submitTeam');
+});
+
+Route::post('/submitTeam', function (Request $request) {
+
+    // $imageGuid = Guid::create();
+
+    $data = $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'max:255',
+        'zipcode' => 'required|max:20',
+        'image' => 'required|image'
+    ]);
+
+    if( $request->hasFile('image'))
+    {
+        $request->image->store('public/team-images');
+        $file = Input::file('image')->getClientOriginalName();
+
+        $justFilename = pathinfo($file, PATHINFO_FILENAME);
+        $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+        $filename = 'team-image-' . kebab_case($justFilename) . '-' . time() . '.' . $extension;
+        $filesize = $request->image->getClientSize();
+        $request->image = $request->image->storeAs('public/team-images',$filename);
+
+        $data['image'] = $filename;
+    }
+
+    $team = tap(new App\Team($data))->save();
+
+    return redirect('/');
+});
+
+Route::get('/submitSport', function (){
     return view('submitSport');
 });
 

@@ -49,6 +49,7 @@ class SubmitSportsTest extends TestCase
     /**
     * @expectsException Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException
     **/
+    // stackoverflow help: https://stackoverflow.com/questions/27733158/why-phpunit-does-not-assert-correctly-a-request-with-an-unvalid-method
     // helpful link: https://phpunit.de/manual/6.5/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions.examples.ExceptionTest.php
     function max_length_fails_when_too_long() {
         $this->withoutExceptionHandling();
