@@ -1,5 +1,6 @@
 <?php
 
+use \App\Sport as Sports;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $sports = Sports::all();
+
+    return view('welcome', ['sports' => $sports]);
+    // return view('welcome')->with('sports', $sports);
 });
 
 Auth::routes();
