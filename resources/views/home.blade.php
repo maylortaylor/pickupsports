@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                @foreach ($sports as $sport)
+                    <h1>{{ $sport->title }}</h1>
+                @endforeach
+
                 </div>
             </div>
         </div>
