@@ -13,6 +13,11 @@ use \App\Sport as Sports;
 | contains the "web" middleware group. Now creater something great!
 |
 */
+// Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+// Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+// OAuth Routes
+Route::get('auth/{driver}', ['as' => 'socialAuth', 'uses' => 'Auth\SocialController@redirectToProvider']);
+Route::get('auth/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => 'Auth\SocialController@handleProviderCallback']);
 
 Route::get('/', function () {
     $sports = Sports::all();
